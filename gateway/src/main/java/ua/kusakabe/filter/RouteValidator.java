@@ -10,6 +10,7 @@ import java.util.function.Predicate;
 @Component
 public class RouteValidator {
 
+    //List of endpoints that permitted to request without token
     public static final List<String> openApiEndpoints = List.of(
             "/auth/register",
             "/auth/token",

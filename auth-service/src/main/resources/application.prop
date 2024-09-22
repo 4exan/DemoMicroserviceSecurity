@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ***
+    username: ***
+    password: ***
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+server:
+  port: ***
+
+eureka:
+  instance:
+    hostname: ***

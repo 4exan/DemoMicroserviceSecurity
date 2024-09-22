@@ -2,7 +2,6 @@ package ua.kusakabe.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import ua.kusakabe.dto.AuthRR;
 
@@ -16,7 +15,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    private SecretKey secretKey;
+    private final SecretKey secretKey;
     private static final long EXPIRATION_TIME = 86000000;   //24 Hours
 
     public JwtService(){

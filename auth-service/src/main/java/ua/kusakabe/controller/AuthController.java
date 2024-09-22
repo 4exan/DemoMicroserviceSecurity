@@ -1,21 +1,19 @@
 package ua.kusakabe.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import ua.kusakabe.dto.AuthRR;
-import ua.kusakabe.entity.UserCredential;
 import ua.kusakabe.service.AuthService;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
-    private AuthService authService;
-    private AuthenticationManager authenticationManager;
+    private final AuthService authService;
+    private final AuthenticationManager authenticationManager;
 
     public AuthController(AuthService authService, AuthenticationManager authenticationManager) {
         this.authService = authService;

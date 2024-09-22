@@ -1,7 +1,6 @@
 package ua.kusakabe.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ua.kusakabe.dto.AuthRR;
@@ -11,9 +10,9 @@ import ua.kusakabe.repository.UserCredentialRepository;
 @Service
 public class AuthService {
 
-    private UserCredentialRepository repository;
-    private PasswordEncoder passwordEncoder;
-    private JwtService jwtService;
+    private final UserCredentialRepository repository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     @Autowired
     public AuthService(UserCredentialRepository repository, PasswordEncoder passwordEncoder, JwtService jwtService) {

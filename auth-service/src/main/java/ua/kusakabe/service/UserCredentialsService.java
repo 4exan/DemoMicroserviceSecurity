@@ -10,7 +10,7 @@ import ua.kusakabe.repository.UserCredentialRepository;
 @Service
 public class UserCredentialsService implements UserDetailsService {
 
-    private UserCredentialRepository repo;
+    private final UserCredentialRepository repo;
 
     @Autowired
     public UserCredentialsService(UserCredentialRepository repo) {

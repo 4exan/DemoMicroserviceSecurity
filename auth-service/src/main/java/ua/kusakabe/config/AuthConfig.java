@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,8 +21,8 @@ import ua.kusakabe.service.UserCredentialsService;
 @EnableWebSecurity
 public class AuthConfig {
 
-    private UserCredentialsService userCredentialsService;
-    private JwtAuthFilter jwtAuthFilter;
+    private final UserCredentialsService userCredentialsService;
+    private final JwtAuthFilter jwtAuthFilter;
 
     @Autowired
     public AuthConfig(UserCredentialsService userCredentialsService, JwtAuthFilter jwtAuthFilter) {
@@ -34,7 +33,7 @@ public class AuthConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(AbstractHttpConfigurer::disable)   //Disable csrf
-                .authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll()   //All request that comes to 'auth/**' is premited
+                .authorizeHttpRequests(request -> request.requestMatchers("/auth/**").permitAll()   //All request that comes to 'auth/**' is premised
                         .anyRequest().authenticated())  //All other requests need authentication
                 .sessionManagement(manager -> manager.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(

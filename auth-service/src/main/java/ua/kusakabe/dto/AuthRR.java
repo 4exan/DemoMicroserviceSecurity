@@ -1,6 +1,5 @@
 package ua.kusakabe.dto;
 
-import jakarta.persistence.Entity;
 import ua.kusakabe.entity.UserCredential;
 
 public class AuthRR {
